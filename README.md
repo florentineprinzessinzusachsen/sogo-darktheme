@@ -14,7 +14,7 @@ My SoGo v5.11 instance runs on mailcow-dockerized but this should work on any in
 
 ## Installation
 ### Mailcow
-Please follow [these instructions](https://docs.mailcow.email/manual-guides/SOGo/u_e-sogo/) (from step 10)
+Download [this file](https://raw.githubusercontent.com/florentineprinzessinzusachsen/sogo-darktheme/refs/heads/main/custom-theme.css) to `./data/conf/sogo/custom-theme.css` and follow [these instructions](https://docs.mailcow.email/manual-guides/SOGo/u_e-sogo/) (from step 10)
 
 > 10. append/create docker-compose.override.yml with:
 >```
