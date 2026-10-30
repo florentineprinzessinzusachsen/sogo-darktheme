@@ -751,13 +751,23 @@ body md-tabs .md-tab {
 }
 
 body md-tabs .md-tab.md-active,
-body md-tabs .md-tab.md-focused {
-	color: var(--dark-ink);
+body md-tabs .md-tab.md-focused,
+body md-tabs .md-tab.md-active md-icon {
+	color: var(--dark-ink) !important;
 }
 
 body md-tabs md-ink-bar {
 	background-color: var(--dark-control);
 	color: var(--dark-control);
+}
+
+/* Switches: white knob on a grey track when on */
+body md-switch.md-checked:not([disabled]) .md-thumb {
+	background-color: var(--dark-control) !important;
+}
+
+body md-switch.md-checked:not([disabled]) .md-bar {
+	background-color: rgba(254,254,254,0.5) !important;
 }
 
 body md-chips .sg-chip-progress.ng-hide,

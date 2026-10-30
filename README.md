@@ -7,6 +7,8 @@ There might be visual bugs.
 It is built for SOGo 5.12 (checked against 5.12.12) on mailcow-dockerized, but should work on any installation. The side navigation and top bar are the darkest, the message list is a step lighter and the reading pane lighter again; the date in the top bar and the address under your name are hidden.
 
 ## Screenshots
+Mockups with made-up names and messages.
+
 ![Inbox](inbox1.png "Inbox")
 ![New email](inbox2.png "New email")
 ![Calendar](calendar.png "Calendar")

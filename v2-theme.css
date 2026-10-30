@@ -1040,8 +1040,9 @@ body md-tabs .md-tab {
 }
 
 body md-tabs .md-tab.md-active,
-body md-tabs .md-tab.md-focused {
-	color: var(--v2-ink);
+body md-tabs .md-tab.md-focused,
+body md-tabs .md-tab.md-active md-icon {
+	color: var(--v2-ink) !important;
 }
 
 body md-tabs md-ink-bar {
