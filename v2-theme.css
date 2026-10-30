@@ -612,3 +612,147 @@ body md-sidenav .sg-account-section md-list {
 		transition: none;
 	}
 }
+
+/* ---------- v2: SOGo 5.12 coverage ----------
+ * styles.css loads after this file, so these override its hard-coded light colours
+ * (checked against a compiled SOGo 5.12.12 styles.css).
+ */
+
+/* Form sections (preferences, dialogs, editors) */
+body .sg-has-form-sections {
+	background-color: var(--v2-ground) !important;
+}
+
+body .sg-form-section {
+	background-color: var(--v2-ground-raised) !important;
+}
+
+body md-dialog md-dialog-content.sg-dialog-message.ng-hide {
+	background-color: var(--v2-ground) !important;
+}
+
+/* Labels, inputs and icons that SOGo paints black */
+body md-toolbar.md-accent.md-hue-1 md-icon,
+body .md-toolbar-tools.md-accent.md-hue-1 md-icon,
+body md-sidenav md-checkbox.sg-folder .md-container:after {
+	color: var(--v2-ink-dim);
+}
+
+body .md-sidenav-left md-list-item[disabled],
+body md-sidenav md-list-item[disabled],
+body .md-sidenav-left md-list-item[disabled] md-icon,
+body md-sidenav md-list-item[disabled] md-icon {
+	color: rgba(241,233,220,0.38) !important;
+}
+
+body .sg-attachment-size,
+body sg-draggable-helper.sg-draggable-helper--copy md-icon {
+	color: var(--v2-ink-muted);
+}
+
+body md-autocomplete .ng-invalid:not(.ng-empty),
+body .clean-mailbox-warn {
+	color: var(--v2-ember-ink) !important;
+}
+
+body .sg-timepicker-input-container.sg-timepicker-invalid {
+	border-bottom-color: var(--v2-ember-ink);
+}
+
+mark {
+	background-color: var(--v2-amber);
+	color: var(--v2-on-heat);
+}
+
+/* Message list */
+body .sg-star-bg {
+	background-color: rgba(255,176,59,0.14);
+}
+
+body .sg-icon-star {
+	color: var(--v2-amber);
+}
+
+body .view-list .sg-category-dot,
+body .sg-color-chip {
+	border-color: var(--v2-ground);
+}
+
+body .sg-subcontent {
+	border-left-color: var(--v2-line-strong);
+}
+
+/* Loading placeholders, progress, scroll mask */
+body .sg-skeleton .md-icon-button,
+body .sg-skeleton .md-button.sg-icon-button,
+body .sg-skeleton .sg-md-subhead,
+body .sg-skeleton .sg-md-body,
+body .sg-progress-circular-floating,
+body .md-scroll-mask > .md-scroll-mask-bar {
+	background-color: var(--v2-ground-high);
+}
+
+/* Drag and drop */
+body .sg-droppable-over {
+	background-color: var(--v2-ground-high) !important;
+}
+
+body .as-sortable-drag {
+	background-color: rgba(241,233,220,0.08);
+}
+
+body .sg-over-dropzone .sg-dropzone {
+	background-color: var(--v2-ground-raised);
+	border-color: var(--v2-magenta);
+}
+
+body .sg-over-dropzone .sg-dropzone md-icon {
+	color: var(--v2-ink);
+}
+
+/* Chips */
+body md-chips .sg-chip-progress.ng-hide,
+body md-chips .ng-hide.sg-chip-color {
+	background-color: var(--v2-ground-raised);
+}
+
+/* Time picker */
+body .sg-time-selection-indicator:hover,
+body .sg-time-selection-indicator.md-focus {
+	background: var(--v2-ground-high);
+}
+
+body .sg-timepicker-input-container {
+	border-bottom-color: var(--v2-line-strong);
+}
+
+body .sg-timepicker-time-pane {
+	border-color: var(--v2-line);
+}
+
+/* Calendar grid, events and attendees */
+body [ui-view=calendars] .allDaysView,
+body [ui-view=calendars] .allDaysView--sidenav,
+body [ui-view=calendars] .days .day,
+body [ui-view=calendars] .days .day .clickableHourCell,
+body [ui-view=calendars] .hours .hour,
+body [ui-view=calendars] .minutes30,
+body .hours-pane,
+body .attendees .hour {
+	border-color: var(--v2-line);
+}
+
+body [ui-view=calendars] .days .day .clickableHourCell.outOfDay {
+	background-color: var(--v2-ground-mid);
+}
+
+body [ui-view=calendars] .sg-priority,
+body .attendees .sg-no-freebusy {
+	background-color: var(--v2-ground-high);
+}
+
+body [ui-view=calendars] .multicolumnDay,
+body [ui-view=calendars] .sg-event .ghostStartHour,
+body [ui-view=calendars] .sg-event .ghostEndHour {
+	color: var(--v2-ink);
+}
