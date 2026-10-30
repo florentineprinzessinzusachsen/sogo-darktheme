@@ -253,8 +253,7 @@ body .md-button {
 
 /* Meta: tiny, tight, uppercase */
 body .md-subheader .md-subheader-content,
-body md-subheader .md-subheader-content,
-body .sg-date-group {
+body md-subheader .md-subheader-content {
 	font-family: var(--v2-font-sans);
 	font-size: 11px;
 	line-height: 13px;
@@ -573,9 +572,9 @@ body md-sidenav md-toolbar .sg-md-title {
 	line-height: 22px;
 }
 
+/* Only the name stays next to the logo; the address is hidden */
 body md-sidenav md-toolbar .md-caption {
-	color: var(--v2-ink-muted) !important;
-	opacity: 1;
+	display: none !important;
 }
 
 body md-sidenav md-toolbar md-icon,
@@ -664,21 +663,14 @@ body .md-sidenav-left md-list-item[disabled] md-icon {
 
 /* ---------- Top bar ---------- */
 
-body md-toolbar.toolbar-main,
-body md-toolbar.toolbar-main .sg-date-group,
-body md-toolbar.toolbar-main .sg-date-group p {
+body md-toolbar.toolbar-main {
 	color: var(--v2-ink) !important;
 }
 
-body md-toolbar.toolbar-main .sg-date-group .sg-day {
-	color: var(--v2-ink-muted) !important;
-}
-
-body md-toolbar.toolbar-main .sg-date-today {
-	font-family: var(--v2-font-display);
-	font-weight: 800;
-	letter-spacing: -0.04em;
-	color: var(--v2-ink) !important;
+/* The date (weekday, month, year and day number) is hidden in every module */
+body .sg-date-group,
+body .sg-date-today {
+	display: none !important;
 }
 
 /* ---------- Message list ---------- */
