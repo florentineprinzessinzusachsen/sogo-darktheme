@@ -13,9 +13,41 @@ My SoGo v5.11 instance runs on mailcow-dockerized but this should work on any in
 ![Peferences](preferences.png "Peferences")
 
 ## v2 theme
-`v2-theme.css` is a variant of the dark theme in the v2 design system ("Night" palette): warm soot surfaces instead of grey, bone-coloured text, a magenta → ember → amber heat gradient on the main action buttons (compose, dialog confirm), amber focus rings, magenta links, checkboxes and radios, and the Bricolage Grotesque / Instrument Sans typefaces (loaded from Google Fonts). Layout tweaks are the same as in `custom-theme.css`. It also covers the light boxes and dark labels that SOGo 5.12's own stylesheet hard-codes (preference sections, drag and drop, the time picker, calendar grid lines, flagged messages and so on); it was checked against SOGo 5.12.12.
+`v2-theme.css` applies the v2 design system ("Night") to SOGo 5.12 (checked against 5.12.12):
 
-Install it exactly like the dark theme below, just use `v2-theme.css` as the source file.
+- three surface depths in warm soot: the side navigation and top bar are the darkest, the list column is lighter and the reading column lighter again, with v2 film grain everywhere and paper wear on the navigation, top bar and sign-in page
+- bone text, heat accents: magenta → ember → amber on the main action buttons and switches, heat-gradient hover and active rows, amber focus rings, magenta links, checkboxes and radios
+- the clean v2 logo in place of the user avatar and the SOGo logo on the sign-in page
+- Bricolage Grotesque for titles and Instrument Sans for everything else, served from your own server (no Google Fonts request)
+- the email itself sits on a light paper sheet, so HTML mail that assumes a white background stays readable
+
+`v2-theme.js` is the matching colour palette. SOGo paints some colours from its JavaScript palette at runtime (the selected folder, the selected message, today in the calendar, the quota text, the "no message selected" area), and these would otherwise stay in the stock SOGo colours. The CSS covers those places too, so the theme mostly works without it, but install both.
+
+### Mailcow
+Put these files in `./data/conf/sogo/`:
+
+| file | from this repo |
+| --- | --- |
+| `v2-theme.css` | `v2-theme.css` |
+| `v2-theme.js` | `v2-theme.js` |
+| `BricolageGrotesque-Variable.woff2` | `v2-fonts/` |
+| `InstrumentSans-Variable.woff2` | `v2-fonts/` |
+
+Then add to `docker-compose.override.yml` (no `SOGoUIxDebugEnabled` change needed):
+
+```
+services:
+  sogo-mailcow:
+    volumes:
+      - ./data/conf/sogo/v2-theme.css:/usr/local/lib/GNUstep/SOGo/WebServerResources/css/theme-default.css:z
+      - ./data/conf/sogo/v2-theme.js:/usr/local/lib/GNUstep/SOGo/WebServerResources/js/theme.js:z
+      - ./data/conf/sogo/BricolageGrotesque-Variable.woff2:/usr/local/lib/GNUstep/SOGo/WebServerResources/fonts/BricolageGrotesque-Variable.woff2:z
+      - ./data/conf/sogo/InstrumentSans-Variable.woff2:/usr/local/lib/GNUstep/SOGo/WebServerResources/fonts/InstrumentSans-Variable.woff2:z
+```
+
+The `js/theme.js` line replaces mailcow's own mount of `custom-theme.js` (Compose keeps the override's mount for the same target), so you don't have to edit that file. Run `docker compose up -d`, then `docker compose restart memcached-mailcow`, and hard-reload the browser.
+
+The fonts are licensed under the SIL Open Font License 1.1; the licence texts are in `v2-fonts/`.
 
 ## Installation
 ### Mailcow
